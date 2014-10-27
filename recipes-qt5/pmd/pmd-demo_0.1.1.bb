@@ -23,3 +23,7 @@ OE_QMAKE_PATH_HEADERS = "${OE_QMAKE_PATH_QT_HEADERS}"
 FILES_${PN}-dbg += "${OE_QMAKE_PATH_EXAMPLES}/HAMPDemo/PatientMonitorDemo/.debug"
 FILES_${PN} += "${OE_QMAKE_PATH_EXAMPLES}"
 
+do_install_append () {
+        install -d -m 755 ${D}/${datadir}/applications
+        install -m 644 ${WORKDIR}/pmd.desktop ${D}/${datadir}/applications/pmd.desktop
+}
