@@ -1,0 +1,7 @@
+#xset s off
+#xset -dpms
+# matchbox-desktop &
+while true; do
+   /usr/share/examples/HAMPDemo/PatientMonitorDemo/PatientMonitorDemo
+done
+
