@@ -1,1 +1,1 @@
-IMAGE_INSTALL += " pmd-demo"
+IMAGE_INSTALL += " pmd-demo lighttpd"

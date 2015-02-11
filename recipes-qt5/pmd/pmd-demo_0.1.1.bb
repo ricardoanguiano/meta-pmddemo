@@ -5,10 +5,14 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 
 DEPENDS = "qtbase"
+RECOMMENDS = "lighttpd"
 
 SRC_URI = "git://github.com/hyei/pmd-demo;branch=imx6_solox/uamp"
 SRCREV = "d6f8bc3de091577428476e480abdda8f313e7f24"
-SRC_URI += "file://pmd.desktop"
+SRC_URI += "file://pmd.desktop \
+    file://index.html \
+    file://screen-dump.png \
+"
 
 S = "${WORKDIR}/git"
 
@@ -25,9 +29,14 @@ inherit qmake5
 OE_QMAKE_PATH_HEADERS = "${OE_QMAKE_PATH_QT_HEADERS}"
 
 FILES_${PN}-dbg += "${OE_QMAKE_PATH_EXAMPLES}/HAMPDemo/PatientMonitorDemo/.debug"
-FILES_${PN} += "${OE_QMAKE_PATH_EXAMPLES}"
+FILES_${PN} += "${OE_QMAKE_PATH_EXAMPLES} \
+    /www/pages/ \
+"
 
 do_install_append () {
         install -d -m 755 ${D}/${datadir}/applications
         install -m 644 ${WORKDIR}/pmd.desktop ${D}/${datadir}/applications/pmd.desktop
+	install -d -m 755 ${D}/www/pages/
+	install -m 644 ${WORKDIR}/index.html ${D}/www/pages/index.html
+	install -m 644 ${WORKDIR}/screen-dump.png ${D}/www/pages/screen-dump.png
 }
