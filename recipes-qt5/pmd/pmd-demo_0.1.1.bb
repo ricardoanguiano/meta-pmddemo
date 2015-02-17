@@ -8,7 +8,7 @@ DEPENDS = "qtbase"
 RECOMMENDS = "lighttpd"
 
 SRC_URI = "git://github.com/hyei/pmd-demo;branch=imx6_solox/uamp"
-SRCREV = "b78769963fea221f0a637f6dfbb7641ef252f596"
+SRCREV = "0aa76f0acc82c9edbf22f0d63dc23ec1b943ec29"
 SRC_URI += "file://pmd.desktop \
     file://index.html \
     file://screen-dump.png \
